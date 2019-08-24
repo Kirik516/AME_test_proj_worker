@@ -21,6 +21,7 @@ __published:	// IDE-managed Components
 	TLabel *Label1;
 	TLabel *Label2;
 	TLabel *Label3;
+	TButton *Button4;
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
