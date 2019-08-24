@@ -1,10 +1,10 @@
 object Form1: TForm1
-  Left = 0
-  Top = 0
+  Left = 700
+  Top = 500
   Anchors = []
   Caption = 'Form1'
-  ClientHeight = 150
-  ClientWidth = 300
+  ClientHeight = 156
+  ClientWidth = 444
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,9 +12,10 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poDesigned
   DesignSize = (
-    300
-    150)
+    444
+    156)
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -38,73 +39,73 @@ object Form1: TForm1
     Height = 13
     Caption = 'Value C'
   end
-  object Edit1: TEdit
+  object EditA: TEdit
     Left = 52
     Top = 8
-    Width = 159
+    Width = 303
     Height = 21
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 0
-    Text = 'Edit1'
-    ExplicitWidth = 121
+    Text = 'EditA'
   end
-  object Edit2: TEdit
+  object EditB: TEdit
     Left = 52
     Top = 43
-    Width = 159
+    Width = 303
     Height = 21
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 1
-    Text = 'Edit2'
-    ExplicitWidth = 121
+    Text = 'EditB'
   end
-  object Edit3: TEdit
+  object EditC: TEdit
     Left = 52
     Top = 70
-    Width = 159
+    Width = 303
     Height = 21
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 2
-    Text = 'Edit3'
-    ExplicitWidth = 121
+    Text = 'EditC'
   end
   object Button1: TButton
-    Left = 217
+    Left = 361
     Top = 8
     Width = 75
     Height = 25
     Anchors = [akTop, akRight]
     Caption = 'Stop'
     TabOrder = 3
-    ExplicitLeft = 596
   end
   object Button2: TButton
-    Left = 217
+    Left = 361
     Top = 39
     Width = 75
     Height = 25
     Anchors = [akTop, akRight]
     Caption = 'Stop'
     TabOrder = 4
-    ExplicitLeft = 596
   end
   object Button3: TButton
-    Left = 217
+    Left = 361
     Top = 70
     Width = 75
     Height = 25
     Anchors = [akTop, akRight]
     Caption = 'Stop'
     TabOrder = 5
-    ExplicitLeft = 596
   end
   object Button4: TButton
-    Left = 161
-    Top = 111
+    Left = 305
+    Top = 117
     Width = 131
     Height = 31
     Anchors = [akRight, akBottom]
     Caption = 'Draw for me'
     TabOrder = 6
+  end
+  object Timer1: TTimer
+    Interval = 33
+    OnTimer = Timer1Timer
+    Left = 272
+    Top = 104
   end
 end

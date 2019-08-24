@@ -1,7 +1,4 @@
-﻿[Edit3]
-Coordinates=10,78,44,58
-
-[Label1]
+﻿[Label1]
 Coordinates=133,78,53,58
 
 [Button1]
@@ -10,15 +7,18 @@ Coordinates=64,10,59,58
 [Button3]
 Coordinates=64,78,59,58
 
-[Edit1]
-Coordinates=222,10,44,58
-
 [Button2]
 Coordinates=10,146,59,58
 
-[Edit2]
-Coordinates=10,10,44,58
-
 []
 Coordinates=133,10,79,58
+
+[EditC]
+Coordinates=10,78,44,58
+
+[EditB]
+Coordinates=10,10,44,58
+
+[EditA]
+Coordinates=222,10,44,58
 
