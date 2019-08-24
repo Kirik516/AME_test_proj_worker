@@ -138,6 +138,9 @@
             <BuildOrder>1</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <CppCompile Include="coef_thread.cpp">
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
         <None Include="coef_thread.h">
             <BuildOrder>3</BuildOrder>
         </None>
