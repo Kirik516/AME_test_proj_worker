@@ -1,2 +1,2 @@
-# AME_test_proj
+### AME test proj
 Тестовый проект для компании АМЕ
