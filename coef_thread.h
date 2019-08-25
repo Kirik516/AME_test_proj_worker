@@ -33,5 +33,7 @@ public:
     CoefThread(float startVal, float endVal, float freq = 1.0);
     void setFreq(float freq);
     float getVal();
+    bool isRunning();
     void run();
+    void stop();
 };
