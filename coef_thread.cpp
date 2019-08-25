@@ -22,6 +22,16 @@ CoefThread::CoefThread(float startVal, float endVal, float freq)
     , currentVal(startVal)
 {}
 
+CoefThread::~CoefThread()
+{
+    if (this->running)
+    {
+        this->running = false;
+    }
+
+    this->currentThread.join();
+}
+
 void CoefThread::setFreq(float freq)
 {
     if (freq < this->maxFreq)
