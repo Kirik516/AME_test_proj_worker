@@ -10,6 +10,8 @@ class CoefThread
 
     // sin frequency in sec
     float freq;
+    // read only from inside
+    float maxFreq;
 
     // read only fields
     float startVal;

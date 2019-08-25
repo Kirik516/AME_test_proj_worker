@@ -23,6 +23,12 @@ CoefThread::CoefThread(float startVal, float endVal)
 
 void CoefThread::setFreq(float freq)
 {
+    if (freq < this->maxFreq)
+    {
+        freq = this->maxFreq;
+    }
+
+    this->startTime = std::chrono::system_clock::now();
     this->freq = freq;
 }
 
