@@ -48,6 +48,11 @@ float CoefThread::getVal()
     return this->currentVal.load();
 }
 
+bool CoefThread::isRunning()
+{
+    return this->running;
+}
+
 void CoefThread::run()
 {
     this->running = true;
