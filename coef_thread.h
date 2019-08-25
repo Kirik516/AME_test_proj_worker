@@ -27,7 +27,7 @@ class CoefThread
     void flowCoef();
 
 public:
-    CoefThread(float startVal, float endVal);
+    CoefThread(float startVal, float endVal, float freq = 1.0);
     void setFreq(float freq);
     float getVal();
     void run();
