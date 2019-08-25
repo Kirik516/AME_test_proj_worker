@@ -9,9 +9,6 @@ void CoefThread::flowCoef()
                             std::chrono::system_clock::now() - this->startTime;
         this->currentVal = std::sinf(time.count() * this->freq)
                             * this->range + this->startVal + this->range/2.0;
-//        std::cout << "value generated: " << this->currentVal << std::endl;
-//        std::cout << "asd" << std::endl;
-//        this->currentVal
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
     }
 }
