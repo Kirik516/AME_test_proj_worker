@@ -23,8 +23,9 @@ class CoefThread
     std::atomic<float> currentVal;
     std::chrono::time_point<std::chrono::system_clock> startTime;
 
-    // thread obj
-    std::thread currenThread;
+    // thread
+    std::thread::id threadId;
+    std::thread currentThread;
 
     void flowCoef();
 

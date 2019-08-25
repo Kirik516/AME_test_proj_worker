@@ -41,5 +41,6 @@ void CoefThread::run()
 {
     this->running = true;
     this->startTime = std::chrono::system_clock::now();
-    currenThread = std::thread(&CoefThread::flowCoef, this);
+    this->currentThread = std::thread(&CoefThread::flowCoef, this);
+    this->threadId = this->currentThread.get_id();
 }
