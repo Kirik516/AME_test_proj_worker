@@ -60,3 +60,9 @@ void CoefThread::run()
     this->currentThread = std::thread(&CoefThread::flowCoef, this);
     this->threadId = this->currentThread.get_id();
 }
+
+void CoefThread::stop()
+{
+    this->running = false;
+    this->currentThread.join();
+}
