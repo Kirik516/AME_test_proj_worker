@@ -15,6 +15,7 @@ void CoefThread::flowCoef()
 
 CoefThread::CoefThread(float startVal, float endVal, float freq)
     : running(false)
+    , maxFreq(0.00001)
     , freq(freq)
     , startVal(startVal)
     , range(endVal - startVal)
