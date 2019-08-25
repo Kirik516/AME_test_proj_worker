@@ -19,14 +19,22 @@ __published:	// IDE-managed Components
     TEdit *EditA;
     TEdit *EditB;
     TEdit *EditC;
-	TButton *Button1;
-	TButton *Button2;
-	TButton *Button3;
+    TButton *ButtonA;
+    TButton *ButtonB;
+    TButton *ButtonC;
 	TLabel *Label1;
 	TLabel *Label2;
 	TLabel *Label3;
 	TButton *Button4;
     TTimer *Timer1;
+    TGroupBox *GroupBoxVal;
+    TGroupBox *GroupBoxFreq;
+    TLabel *LabelFreqA;
+    TLabel *LabelFreqB;
+    TLabel *LabelFreqC;
+    TEdit *EditFreqA;
+    TEdit *EditFreqB;
+    TEdit *EditFreqC;
     void __fastcall Timer1Timer(TObject *Sender);
 
 private:	// User declarations
