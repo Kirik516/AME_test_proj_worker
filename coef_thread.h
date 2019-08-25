@@ -10,6 +10,8 @@ class CoefThread
     // read only from inside
     bool running;
 
+    // write only from outside
+    // read only from inside
     // sin frequency in sec
     float freq;
     // read only from inside
@@ -19,7 +21,7 @@ class CoefThread
     float startVal;
     float range;
 
-    // write fields
+    // write from intside fields
     std::atomic<float> currentVal;
     std::chrono::time_point<std::chrono::system_clock> startTime;
 
