@@ -3,7 +3,7 @@
 void CoefThread::flowCoef()
 {
     float val;
-    while (this->isRunning)
+    while (this->running)
     {
         std::chrono::duration<float> time =
                              std::chrono::system_clock::now() - this->startTime;
@@ -14,7 +14,7 @@ void CoefThread::flowCoef()
 }
 
 CoefThread::CoefThread(float startVal, float endVal, float freq)
-    : isRunning(0)
+    : running(false)
     , freq(freq)
     , startVal(startVal)
     , range(endVal - startVal)
@@ -39,7 +39,7 @@ float CoefThread::getVal()
 
 void CoefThread::run()
 {
-    this->isRunning = true;
+    this->running = true;
     this->startTime = std::chrono::system_clock::now();
     currenThread = std::thread(&CoefThread::flowCoef, this);
 }

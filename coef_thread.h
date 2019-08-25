@@ -6,7 +6,9 @@
 
 class CoefThread
 {
-    bool isRunning;
+    // read/write for outside
+    // read only from inside
+    bool running;
 
     // sin frequency in sec
     float freq;
