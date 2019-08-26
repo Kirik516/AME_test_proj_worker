@@ -13,6 +13,7 @@
 #include <map>
 
 #include "coef_thread.h"
+#include "file_write_thread.h"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
