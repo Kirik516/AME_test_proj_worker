@@ -12,6 +12,7 @@ void CoefThread::flowCoef()
         std::this_thread::sleep_for(std::chrono::milliseconds(30));
     }
 }
+//---------------------------------------------------------------------------
 
 CoefThread::CoefThread(float startVal, float endVal, float freq)
     : running(false)
@@ -21,6 +22,7 @@ CoefThread::CoefThread(float startVal, float endVal, float freq)
     , range(endVal - startVal)
     , currentVal(startVal)
 {}
+//---------------------------------------------------------------------------
 
 CoefThread::~CoefThread()
 {
@@ -31,6 +33,7 @@ CoefThread::~CoefThread()
 
     this->currentThread.join();
 }
+//---------------------------------------------------------------------------
 
 void CoefThread::setFreq(float freq)
 {
@@ -42,16 +45,19 @@ void CoefThread::setFreq(float freq)
     this->startTime = std::chrono::system_clock::now();
     this->freq = freq;
 }
+//---------------------------------------------------------------------------
 
 float CoefThread::getVal()
 {
     return this->currentVal.load();
 }
+//---------------------------------------------------------------------------
 
 bool CoefThread::isRunning()
 {
     return this->running;
 }
+//---------------------------------------------------------------------------
 
 void CoefThread::run()
 {
@@ -60,9 +66,11 @@ void CoefThread::run()
     this->currentThread = std::thread(&CoefThread::flowCoef, this);
     this->threadId = this->currentThread.get_id();
 }
+//---------------------------------------------------------------------------
 
 void CoefThread::stop()
 {
     this->running = false;
     this->currentThread.join();
 }
+//---------------------------------------------------------------------------
