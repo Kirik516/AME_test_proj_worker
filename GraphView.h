@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef GraphH
-#define GraphH
+#ifndef GraphViewH
+#define GraphViewH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
@@ -11,23 +11,25 @@
 #include <Vcl.Graphics.hpp>
 //---------------------------------------------------------------------------
 #include <cmath>
-#include <thread>
 //---------------------------------------------------------------------------
 #include "GraphDrawerThread.h"
 //---------------------------------------------------------------------------
-class TGraph1 : public TForm
+class TGraphView1 : public TForm
 {
 __published:	// IDE-managed Components
     TLabel *Titile;
-    TImage *Graph;
     TLabel *LabelY;
     TLabel *LabelX;
-    TImage *BackGraph;
+    TLabel *GraphLabel;
+    TTimer *ResizeTimer;
     void __fastcall FormShow(TObject *Sender);
     void __fastcall FormMouseWheelDown(TObject *Sender, TShiftState Shift, TPoint &MousePos,
           bool &Handled);
     void __fastcall FormMouseWheelUp(TObject *Sender, TShiftState Shift, TPoint &MousePos,
           bool &Handled);
+    void __fastcall FormPaint(TObject *Sender);
+    void __fastcall ResizeTimerTimer(TObject *Sender);
+    void __fastcall FormResize(TObject *Sender);
 
 private:	// User declarations
     int graphResolution; // graph sampling
@@ -40,21 +42,22 @@ private:	// User declarations
 
     int test;
 
-//    TPicture pic;
+    TBitmap *graphBack;
+    TBitmap *graphFront;
 
     // special thread handle for drawing
     GraphDrawer *drawThread;
 
     void configDrawThread();
     void zoom(int direction);
-    void __fastcall threadend(TObject *Sender);
+    void __fastcall threadEnd(TObject *Sender);
 
 public:		// User declarations
-    __fastcall TGraph1(TComponent* Owner);
-        void setCoefs(float coefA, float coefB, float coefC);
+    __fastcall TGraphView1(TComponent* Owner);
+    void setCoefs(float coefA, float coefB, float coefC);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TGraph1 *Graph1;
+extern PACKAGE TGraphView1 *GraphView1;
 //---------------------------------------------------------------------------
 #endif
 

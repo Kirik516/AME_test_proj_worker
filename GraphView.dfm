@@ -1,9 +1,9 @@
-object Graph1: TGraph1
+object GraphView1: TGraphView1
   Left = 0
   Top = 0
   Caption = 'Function graph'
-  ClientHeight = 281
-  ClientWidth = 429
+  ClientHeight = 423
+  ClientWidth = 541
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,15 +14,16 @@ object Graph1: TGraph1
   Visible = True
   OnMouseWheelDown = FormMouseWheelDown
   OnMouseWheelUp = FormMouseWheelUp
-  OnResize = FormShow
-  OnShow = FormShow
+  OnPaint = FormPaint
+  OnResize = FormResize
+  OnShow = FormPaint
   PixelsPerInch = 96
   TextHeight = 13
   object Titile: TLabel
     AlignWithMargins = True
     Left = 3
     Top = 3
-    Width = 423
+    Width = 535
     Height = 17
     Align = alTop
     AutoSize = False
@@ -39,23 +40,11 @@ object Graph1: TGraph1
     ExplicitTop = 8
     ExplicitWidth = 619
   end
-  object Graph: TImage
-    AlignWithMargins = True
-    Left = 26
-    Top = 26
-    Width = 400
-    Height = 230
-    Align = alClient
-    ExplicitLeft = 34
-    ExplicitTop = 32
-    ExplicitWidth = 608
-    ExplicitHeight = 305
-  end
   object LabelY: TLabel
     AlignWithMargins = True
     Left = 3
-    Top = 262
-    Width = 423
+    Top = 404
+    Width = 535
     Height = 16
     Align = alBottom
     Alignment = taCenter
@@ -66,7 +55,6 @@ object Graph1: TGraph1
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    ExplicitTop = 281
     ExplicitWidth = 50
   end
   object LabelX: TLabel
@@ -74,7 +62,7 @@ object Graph1: TGraph1
     Left = 3
     Top = 26
     Width = 17
-    Height = 230
+    Height = 372
     Align = alLeft
     Alignment = taCenter
     Caption = 'X - Axis'
@@ -87,11 +75,20 @@ object Graph1: TGraph1
     ParentFont = False
     ExplicitHeight = 51
   end
-  object BackGraph: TImage
-    Left = 26
-    Top = 26
-    Width = 105
-    Height = 105
-    Visible = False
+  object GraphLabel: TLabel
+    Left = 23
+    Top = 23
+    Width = 518
+    Height = 378
+    Align = alClient
+    ExplicitWidth = 3
+    ExplicitHeight = 13
+  end
+  object ResizeTimer: TTimer
+    Enabled = False
+    Interval = 200
+    OnTimer = ResizeTimerTimer
+    Left = 24
+    Top = 24
   end
 end

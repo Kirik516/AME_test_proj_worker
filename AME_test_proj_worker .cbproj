@@ -117,6 +117,7 @@
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
+        <LinkPackageImports>rtl.bpi;vcl.bpi</LinkPackageImports>
     </PropertyGroup>
     <ItemGroup>
         <CppCompile Include="AME_test_proj_worker .cpp">
@@ -135,15 +136,15 @@
         <None Include="file_write_thread.h">
             <BuildOrder>5</BuildOrder>
         </None>
-        <CppCompile Include="Graph.cpp">
-            <Form>Graph1</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>Graph.h</DependentOn>
-            <BuildOrder>6</BuildOrder>
-        </CppCompile>
         <CppCompile Include="GraphDrawerThread.cpp">
             <DependentOn>GraphDrawerThread.h</DependentOn>
             <BuildOrder>7</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="GraphView.cpp">
+            <Form>GraphView1</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>GraphView.h</DependentOn>
+            <BuildOrder>6</BuildOrder>
         </CppCompile>
         <CppCompile Include="Window.cpp">
             <Form>Form1</Form>
@@ -151,8 +152,8 @@
             <DependentOn>Window.h</DependentOn>
             <BuildOrder>2</BuildOrder>
         </CppCompile>
+        <FormResources Include="GraphView.dfm"/>
         <FormResources Include="Window.dfm"/>
-        <FormResources Include="Graph.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
