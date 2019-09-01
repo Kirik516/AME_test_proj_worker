@@ -63,11 +63,11 @@ void GraphDrawer::draw(int width, int height)
     // drawing Axis
     canv->Pen->Color = clDkGray;
     // X
-    canv->MoveTo(0, height/2);
-    canv->LineTo(width, height/2);
+    canv->MoveTo(1, height/2);
+    canv->LineTo(width - 3, height/2);
     // Y
-    canv->MoveTo(width/2, 0);
-    canv->LineTo(width/2, height);
+    canv->MoveTo(width/2, 1);
+    canv->LineTo(width/2, height - 3);
 
     // drawing graph
     canv->Pen->Color = clLime;
