@@ -122,11 +122,11 @@ void __fastcall TGraphView1::FormResize(TObject *Sender)
 {
     if (this->ResizeTimer->Enabled)
     {
-        this->ResizeTimer->Interval = this->ResizeTimer->Interval + 200;
+        this->ResizeTimer->Enabled = false;
+        this->ResizeTimer->Enabled = true;
         return;
     }
 
-    this->ResizeTimer->Interval = 200;
     this->ResizeTimer->Enabled = true;
 }
 //---------------------------------------------------------------------------
