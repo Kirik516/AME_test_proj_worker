@@ -44,9 +44,9 @@ __published:	// IDE-managed Components
 
 private:	// User declarations
     // threads
-    CoefThread coefA;
-    CoefThread coefB;
-    CoefThread coefC;
+    CoefThread *coefA;
+    CoefThread *coefB;
+    CoefThread *coefC;
 
     // for freq set
     std::map<TEdit*, CoefThread*> freqMap;

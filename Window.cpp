@@ -12,37 +12,37 @@ TForm1 *Form1;
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm(Owner)
-    , coefA(3.0, 7.0)
-    , coefB(1.0, 3.0)
-    , coefC(1.0, 10.0)
+    , coefA(new CoefThread(3.0, 7.0))
+    , coefB(new CoefThread(1.0, 3.0))
+    , coefC(new CoefThread(1.0, 10.0))
 {
-    this->freqMap[EditFreqA] = &this->coefA;
-    this->freqMap[EditFreqB] = &this->coefB;
-    this->freqMap[EditFreqC] = &this->coefC;
+    this->freqMap[EditFreqA] = this->coefA;
+    this->freqMap[EditFreqB] = this->coefB;
+    this->freqMap[EditFreqC] = this->coefC;
 
-    this->stopMap[ButtonA] = &this->coefA;
-    this->stopMap[ButtonB] = &this->coefB;
-    this->stopMap[ButtonC] = &this->coefC;
+    this->stopMap[ButtonA] = this->coefA;
+    this->stopMap[ButtonB] = this->coefB;
+    this->stopMap[ButtonC] = this->coefC;
 
     this->valMap[ButtonA] = this->EditA;
     this->valMap[ButtonB] = this->EditB;
     this->valMap[ButtonC] = this->EditC;
 
-    this->coefA.run();
-    this->coefB.run();
-    this->coefC.run();
+    this->coefA->run();
+    this->coefB->run();
+    this->coefC->run();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Timer1Timer(TObject *Sender)
 {
     // setting current values to edits
-    std::string val = std::to_string(this->coefA.getVal());
+    std::string val = std::to_string(this->coefA->getVal());
     this->EditA->Text = val.c_str();
 
-    val = std::to_string(this->coefB.getVal());
+    val = std::to_string(this->coefB->getVal());
     this->EditB->Text = val.c_str();
 
-    val = std::to_string(this->coefC.getVal());
+    val = std::to_string(this->coefC->getVal());
     this->EditC->Text = val.c_str();
 }
 //---------------------------------------------------------------------------
