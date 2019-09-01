@@ -120,6 +120,7 @@ void __fastcall TGraphView1::ResizeTimerTimer(TObject *Sender)
 
 void __fastcall TGraphView1::FormResize(TObject *Sender)
 {
+    // allows start redraw after resize has been end
     if (this->ResizeTimer->Enabled)
     {
         this->ResizeTimer->Enabled = false;
