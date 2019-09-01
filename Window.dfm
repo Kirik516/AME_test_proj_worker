@@ -13,6 +13,7 @@ object Form1: TForm1
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
+  OnClose = FormClose
   DesignSize = (
     598
     189)

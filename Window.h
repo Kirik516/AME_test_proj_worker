@@ -41,6 +41,7 @@ __published:	// IDE-managed Components
     void __fastcall EditFreqKeyPress(TObject *Sender, System::WideChar &Key);
     void __fastcall ButtonTrCntClick(TObject *Sender);
     void __fastcall Button4Click(TObject *Sender);
+    void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 
 private:	// User declarations
     // threads

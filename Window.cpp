@@ -126,3 +126,11 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
+{
+    delete this->coefA;
+    delete this->coefB;
+    delete this->coefC;
+}
+//---------------------------------------------------------------------------
+
