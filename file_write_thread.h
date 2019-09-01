@@ -1,6 +1,8 @@
-#include <filesystem>
+#include <thread>
 
-class MyPath : public std::filesystem::path
+#include <windows.h>
+
+class FileWrite
 {
 
 };
