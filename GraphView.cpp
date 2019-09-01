@@ -39,7 +39,6 @@ void TGraphView1::configDrawThread()
 {
     this->drawThread = new GraphDrawer(true);
     this->drawThread->OnTerminate = threadEnd;
-    this->drawThread->setGraphLabel(this->GraphLabel);
     this->drawThread->setGraphBitmap(this->graphBack);
     this->drawThread->setDim(this->GraphLabel->Width, this->GraphLabel->Height);
     this->drawThread->setSampling(this->graphResolution);
