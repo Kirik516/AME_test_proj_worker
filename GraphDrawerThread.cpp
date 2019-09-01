@@ -54,6 +54,7 @@ int GraphDrawer::toScreen(float val, float start, float stop, int space)
 void GraphDrawer::draw(int width, int height)
 {
     TCanvas *canv = this->graph->Canvas;
+    canv->Lock();
 
     this->graph->SetSize(width, height);
 
@@ -95,6 +96,7 @@ void GraphDrawer::draw(int width, int height)
         px1 = px2;
         py1 = py2;
     }
+    canv->Unlock();
 }
 //---------------------------------------------------------------------------
 
