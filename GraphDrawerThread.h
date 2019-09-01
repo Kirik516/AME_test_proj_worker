@@ -24,7 +24,6 @@ class GraphDrawer : public TThread
     float drawindFunstion(float coefA, float coefB, float coefC, float t);
     int toScreen(float val, float start, float stop, int space);
     void draw(int width, int height);
-    void __fastcall updatePicture();
 
 protected:
     void __fastcall Execute();

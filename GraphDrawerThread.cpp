@@ -34,8 +34,6 @@ void __fastcall GraphDrawer::Execute()
     //---- Place thread code here ----
 
     this->draw(this->width, this->height);
-
-    Synchronize(&updatePicture);
 }
 //---------------------------------------------------------------------------
 
@@ -94,12 +92,6 @@ void GraphDrawer::draw(int width, int height)
         px1 = px2;
         py1 = py2;
     }
-}
-//---------------------------------------------------------------------------
-
-void __fastcall GraphDrawer::updatePicture()
-{
-    this->imageForGraph->Picture = this->imageBackGraph->Picture;
 }
 //---------------------------------------------------------------------------
 
