@@ -97,7 +97,6 @@ void GraphDrawer::draw(int width, int height)
         py1 = py2;
     }
     canv->Unlock();
-
 }
 //---------------------------------------------------------------------------
 
