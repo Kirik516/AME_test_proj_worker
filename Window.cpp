@@ -4,6 +4,7 @@
 #pragma hdrstop
 
 #include "Window.h"
+#include "GraphView.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -116,6 +117,12 @@ void __fastcall TForm1::ButtonTrCntClick(TObject *Sender)
     {
         this->valMap[button]->Text = "Bad";
     }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button4Click(TObject *Sender)
+{
+    GraphView1->Visible = true;
 }
 //---------------------------------------------------------------------------
 

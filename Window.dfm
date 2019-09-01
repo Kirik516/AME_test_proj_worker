@@ -26,6 +26,7 @@ object Form1: TForm1
     Anchors = [akRight, akBottom]
     Caption = 'Draw for me'
     TabOrder = 0
+    OnClick = Button4Click
   end
   object GroupBoxVal: TGroupBox
     Left = 151
