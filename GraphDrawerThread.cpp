@@ -55,6 +55,8 @@ void GraphDrawer::draw(int width, int height)
 {
     TCanvas *canv = this->graph->Canvas;
 
+    this->graph->SetSize(width, height);
+
     // beautiful border
     canv->Pen->Color = clSkyBlue;
     canv->Brush->Color = TColor(0x00404040);
