@@ -97,12 +97,7 @@ void GraphDrawer::draw(int width, int height)
         py1 = py2;
     }
     canv->Unlock();
-}
-//---------------------------------------------------------------------------
 
-void GraphDrawer::setImageForGraph(TImage *image)
-{
-    this->imageForGraph = image;
 }
 //---------------------------------------------------------------------------
 
