@@ -59,6 +59,7 @@ void GraphDrawer::draw(int width, int height)
 
     // beautiful border
     canv->Pen->Color = clSkyBlue;
+    // trying some gray background color
     canv->Brush->Color = TColor(0x00404040);
     canv->Rectangle(0, 0, width, height);
 
