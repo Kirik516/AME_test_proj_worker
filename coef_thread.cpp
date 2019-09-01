@@ -31,7 +31,10 @@ CoefThread::~CoefThread()
         this->running = false;
     }
 
-    this->currentThread.join();
+    if (this->currentThread.joinable())
+    {
+        this->currentThread.join();
+    }
 }
 //---------------------------------------------------------------------------
 
