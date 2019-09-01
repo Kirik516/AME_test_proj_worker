@@ -22,6 +22,7 @@
 
 __fastcall GraphDrawer::GraphDrawer(bool CreateSuspended)
     : TThread(CreateSuspended)
+    , graph(NULL)
 {
     this->FreeOnTerminate = true;
 }
@@ -54,7 +55,7 @@ int GraphDrawer::toScreen(float val, float start, float stop, int space)
 
 void GraphDrawer::draw(int width, int height)
 {
-    TCanvas *canv = this->imageBackGraph->Canvas;
+    TCanvas *canv = this->graph->Canvas;
 
     // beautiful border
     canv->Pen->Color = clSkyBlue;
@@ -108,9 +109,9 @@ void GraphDrawer::setImageForGraph(TImage *image)
 }
 //---------------------------------------------------------------------------
 
-void GraphDrawer::setImageForBackGraph(TImage *image)
+void GraphDrawer::setGraphBitmap(TBitmap *bitmap)
 {
-    this->imageBackGraph = image;
+    this->graph = bitmap;
 }
 //---------------------------------------------------------------------------
 

@@ -19,8 +19,7 @@ class GraphDrawer : public TThread
     float coefB;
     float coefC;
 
-    TImage *imageForGraph;
-    TImage *imageBackGraph;
+    TBitmap *graph;
 
     float drawindFunstion(float coefA, float coefB, float coefC, float t);
     int toScreen(float val, float start, float stop, int space);
@@ -32,8 +31,7 @@ protected:
 
 public:
     __fastcall GraphDrawer(bool CreateSuspended);
-    void setImageForGraph(TImage *image);
-    void setImageForBackGraph(TImage *image);
+    void setGraphBitmap(TBitmap *bitmap);
     void setDim(int width, int height);
     void setSampling(int sampling);
     void setXRange(float startX, float stopX);
