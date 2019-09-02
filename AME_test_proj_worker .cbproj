@@ -146,6 +146,12 @@
             <DependentOn>GraphView.h</DependentOn>
             <BuildOrder>6</BuildOrder>
         </CppCompile>
+        <CppCompile Include="thread_wrap.cpp">
+            <BuildOrder>9</BuildOrder>
+        </CppCompile>
+        <None Include="thread_wrap.h">
+            <BuildOrder>8</BuildOrder>
+        </None>
         <CppCompile Include="Window.cpp">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
