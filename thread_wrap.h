@@ -1,3 +1,6 @@
+#ifndef THREAD_WRAP_H
+#define THREAD_WRAP_H
+
 #include <thread>
 #include <future>
 
@@ -15,4 +18,6 @@ public:
     virtual void run() = 0;
     void stop();
 };
+
+#endif // THREAD_WRAP_H
 

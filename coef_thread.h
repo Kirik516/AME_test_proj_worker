@@ -1,3 +1,6 @@
+#ifndef COEF_THREAD_H
+#define COEF_THREAD_H
+
 #include <chrono>
 #include <atomic>
 #include <thread>
@@ -40,3 +43,6 @@ public:
     void run();
     void stop();
 };
+
+#endif // COEF_THREAD_H
+
