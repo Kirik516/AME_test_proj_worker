@@ -50,6 +50,7 @@ private:	// User declarations
     CoefThread *coefA;
     CoefThread *coefB;
     CoefThread *coefC;
+    FileWriteThread *fileWrite;
 
     // for freq set
     std::map<TEdit*, CoefThread*> freqMap;
