@@ -122,6 +122,10 @@ void __fastcall TForm1::ButtonTrCntClick(TObject *Sender)
 
 void __fastcall TForm1::Button4Click(TObject *Sender)
 {
+    GraphView1->setCoefs(this->EditA->Text.ToDouble(),
+                            this->EditB->Text.ToDouble(),
+                            this->EditC->Text.ToDouble());
+    GraphView1->FormShow(NULL);
     GraphView1->Visible = true;
 }
 //---------------------------------------------------------------------------
