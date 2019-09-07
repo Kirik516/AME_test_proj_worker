@@ -20,13 +20,9 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     this->freqMap[EditFreqB] = this->coefB;
     this->freqMap[EditFreqC] = this->coefC;
 
-    this->stopMap[ButtonA] = this->coefA;
-    this->stopMap[ButtonB] = this->coefB;
-    this->stopMap[ButtonC] = this->coefC;
-
-    this->valMap[ButtonA] = this->EditA;
-    this->valMap[ButtonB] = this->EditB;
-    this->valMap[ButtonC] = this->EditC;
+    this->stopValMap[ButtonA] = std::pair<TEdit*, CoefThread*>(this->EditA, this->coefA);
+    this->stopValMap[ButtonB] = std::pair<TEdit*, CoefThread*>(this->EditB, this->coefB);
+    this->stopValMap[ButtonC] = std::pair<TEdit*, CoefThread*>(this->EditC, this->coefC);
 
     this->coefA->start();
     this->coefB->start();
@@ -36,14 +32,17 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 void __fastcall TForm1::Timer1Timer(TObject *Sender)
 {
     // setting current values to edits
-    std::string val = std::to_string(this->coefA->getVal());
-    this->EditA->Text = val.c_str();
+    std::string val;
 
-    val = std::to_string(this->coefB->getVal());
-    this->EditB->Text = val.c_str();
-
-    val = std::to_string(this->coefC->getVal());
-    this->EditC->Text = val.c_str();
+    auto mapIt = this->stopValMap.begin();
+    for (; mapIt != this->stopValMap.end(); ++mapIt)
+    {
+        if (mapIt->second.first->Enabled == false)
+        {
+            val = std::to_string(mapIt->second.second->getVal());
+            mapIt->second.first->Text = val.c_str();
+        }
+    }
 }
 //---------------------------------------------------------------------------
 int TForm1::setFreq(TEdit *edit, CoefThread *coefThread)
@@ -89,13 +88,13 @@ int TForm1::stopStartThread(TButton *button, CoefThread *coefThread)
     if (coefThread->isRunning())
     {
         coefThread->stop();
-        this->valMap[button]->Enabled = true;
+        this->stopValMap[button].first->Enabled = true;
         button->Caption = "Run";
         return 0;
     }
 
     coefThread->start();
-    this->valMap[button]->Enabled = false;
+    this->stopValMap[button].first->Enabled = false;
     button->Caption = "Stop";
 
     return 0;
@@ -109,14 +108,14 @@ void __fastcall TForm1::ButtonTrCntClick(TObject *Sender)
         return;
     }
 
-    if (!this->stopMap.count(button) || !this->valMap.count(button))
+    if (!this->stopValMap.count(button))
     {
         return;
     }
 
-    if (this->stopStartThread(button, this->stopMap[button]))
+    if (this->stopStartThread(button, this->stopValMap[button].second))
     {
-        this->valMap[button]->Text = "Bad";
+        this->stopValMap[button].first->Text = "Bad";
     }
 }
 //---------------------------------------------------------------------------

@@ -52,9 +52,8 @@ private:	// User declarations
     // for freq set
     std::map<TEdit*, CoefThread*> freqMap;
 
-    // for thread stop/start
-    std::map<TButton*, CoefThread*> stopMap;
-    std::map<TButton*, TEdit*> valMap;
+    // for thread stop/start and  get value
+    std::map<TButton*, std::pair<TEdit*, CoefThread*>> stopValMap;
 
     // 0 - on success; 1 - on fail
     // set freq from edit value to thread
