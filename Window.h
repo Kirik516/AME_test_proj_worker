@@ -12,6 +12,8 @@
 #include <string>
 #include <map>
 
+#include <System.SysUtils.hpp>
+
 #include "coef_thread.h"
 #include "file_write_thread.h"
 //---------------------------------------------------------------------------

@@ -16,6 +16,8 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     , coefB(new CoefThread(1.0, 3.0))
     , coefC(new CoefThread(1.0, 10.0))
 {
+    FormatSettings.DecimalSeparator = '.';
+
     this->freqMap[EditFreqA] = this->coefA;
     this->freqMap[EditFreqB] = this->coefB;
     this->freqMap[EditFreqC] = this->coefC;
