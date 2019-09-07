@@ -11,12 +11,14 @@ class ThreadWrap
 
     std::thread threadObj;
 
+    virtual void run() = 0;
 
 public:
     ThreadWrap();
     ~ThreadWrap();
-    virtual void run() = 0;
+    void start();
     void stop();
+    bool isRunning();
 };
 
 #endif // THREAD_WRAP_H
