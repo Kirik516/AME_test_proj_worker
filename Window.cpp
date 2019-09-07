@@ -28,9 +28,9 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     this->valMap[ButtonB] = this->EditB;
     this->valMap[ButtonC] = this->EditC;
 
-    this->coefA->run();
-    this->coefB->run();
-    this->coefC->run();
+    this->coefA->start();
+    this->coefB->start();
+    this->coefC->start();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Timer1Timer(TObject *Sender)
@@ -94,12 +94,13 @@ int TForm1::stopStartThread(TButton *button, CoefThread *coefThread)
         return 0;
     }
 
-    coefThread->run();
+    coefThread->start();
     this->valMap[button]->Enabled = false;
     button->Caption = "Stop";
 
     return 0;
 }
+//---------------------------------------------------------------------------
 void __fastcall TForm1::ButtonTrCntClick(TObject *Sender)
 {
     TButton *button = dynamic_cast<TButton*>(Sender);
