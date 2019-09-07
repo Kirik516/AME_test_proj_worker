@@ -7,12 +7,10 @@
 #include <cmath>
 #include <iostream>
 
-class CoefThread
-{
-    // read/write for outside
-    // read only from inside
-    bool running;
+#include "thread_wrap.h"
 
+class CoefThread : public ThreadWrap
+{
     // write only from outside
     // read only from inside
     // sin frequency in sec
@@ -30,18 +28,14 @@ class CoefThread
 
     // thread
     std::thread::id threadId;
-    std::thread currentThread;
 
     void flowCoef();
+    virtual void run();
 
 public:
     CoefThread(float startVal, float endVal, float freq = 1.0);
-    ~CoefThread();
     void setFreq(float freq);
     float getVal();
-    bool isRunning();
-    void run();
-    void stop();
 };
 
 #endif // COEF_THREAD_H
