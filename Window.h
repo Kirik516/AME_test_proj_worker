@@ -26,10 +26,10 @@ __published:	// IDE-managed Components
     TButton *ButtonA;
     TButton *ButtonB;
     TButton *ButtonC;
-	TLabel *Label1;
-	TLabel *Label2;
-	TLabel *Label3;
-	TButton *Button4;
+    TLabel *LabelValA;
+    TLabel *LabelValB;
+    TLabel *LabelValC;
+    TButton *ButtonDraw;
     TTimer *Timer1;
     TGroupBox *GroupBoxVal;
     TGroupBox *GroupBoxFreq;
@@ -42,7 +42,7 @@ __published:	// IDE-managed Components
     void __fastcall Timer1Timer(TObject *Sender);
     void __fastcall EditFreqKeyPress(TObject *Sender, System::WideChar &Key);
     void __fastcall ButtonTrCntClick(TObject *Sender);
-    void __fastcall Button4Click(TObject *Sender);
+    void __fastcall ButtonDrawClick(TObject *Sender);
     void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 
 private:	// User declarations

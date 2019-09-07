@@ -19,7 +19,7 @@ object Form1: TForm1
     189)
   PixelsPerInch = 96
   TextHeight = 13
-  object Button4: TButton
+  object ButtonDraw: TButton
     Left = 459
     Top = 150
     Width = 131
@@ -27,7 +27,7 @@ object Form1: TForm1
     Anchors = [akRight, akBottom]
     Caption = 'Draw for me'
     TabOrder = 0
-    OnClick = Button4Click
+    OnClick = ButtonDrawClick
   end
   object GroupBoxVal: TGroupBox
     Left = 151
@@ -40,21 +40,21 @@ object Form1: TForm1
     DesignSize = (
       439
       129)
-    object Label1: TLabel
+    object LabelValA: TLabel
       Left = 16
       Top = 28
       Width = 36
       Height = 13
       Caption = 'Value A'
     end
-    object Label2: TLabel
+    object LabelValB: TLabel
       Left = 17
       Top = 58
       Width = 35
       Height = 13
       Caption = 'Value B'
     end
-    object Label3: TLabel
+    object LabelValC: TLabel
       Left = 16
       Top = 88
       Width = 36
@@ -166,7 +166,7 @@ object Form1: TForm1
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
-      Text = '1,0'
+      Text = '1.0'
       OnKeyPress = EditFreqKeyPress
     end
     object EditFreqB: TEdit
@@ -179,7 +179,7 @@ object Form1: TForm1
       ParentShowHint = False
       ShowHint = True
       TabOrder = 1
-      Text = '1,0'
+      Text = '1.0'
       OnKeyPress = EditFreqKeyPress
     end
     object EditFreqC: TEdit
@@ -192,7 +192,7 @@ object Form1: TForm1
       ParentShowHint = False
       ShowHint = True
       TabOrder = 2
-      Text = '1,0'
+      Text = '1.0'
       OnKeyPress = EditFreqKeyPress
     end
   end

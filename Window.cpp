@@ -122,7 +122,7 @@ void __fastcall TForm1::ButtonTrCntClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::Button4Click(TObject *Sender)
+void __fastcall TForm1::ButtonDrawClick(TObject *Sender)
 {
     GraphView1->setCoefs(this->EditA->Text.ToDouble(),
                             this->EditB->Text.ToDouble(),
