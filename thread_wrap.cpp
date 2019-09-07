@@ -17,6 +17,13 @@ ThreadWrap::~ThreadWrap()
 
 void ThreadWrap::start()
 {
+    this->terminateSig = std::promise<void>();
+    this->futureObj = this->terminateSig.get_future();
+
+    if (this->threadObj.joinable())
+    {
+        this->threadObj.join();
+    }
     this->threadObj = std::thread(&ThreadWrap::run, this);
 }
 //---------------------------------------------------------------------------
