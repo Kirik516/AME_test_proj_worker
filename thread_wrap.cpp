@@ -7,9 +7,12 @@ ThreadWrap::ThreadWrap()
 
 ThreadWrap::~ThreadWrap()
 {
-    if (this->threadObj.joinable())
+    if (this->isRunning())
     {
         this->stop();
+    }
+    if (this->threadObj.joinable())
+    {
         this->threadObj.join();
     }
 }
