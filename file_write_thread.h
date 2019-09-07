@@ -8,9 +8,7 @@
 class FileWrite
 {
     void mappedFileWrite(float coefA, float coefB, float coefC);
-
-public:
-    void run();
+    virtual void run();
 };
 
 #endif // FILE_WRITE_THREAD_H
