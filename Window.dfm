@@ -161,7 +161,7 @@ object Form1: TForm1
       Top = 25
       Width = 74
       Height = 21
-      Hint = 'Value A flow frequency (secs for period)'
+      Hint = 'Value A flow frequency (secs for period); Enter to apply'
       Anchors = [akLeft, akTop, akRight]
       ParentShowHint = False
       ShowHint = True
@@ -174,7 +174,7 @@ object Form1: TForm1
       Top = 55
       Width = 74
       Height = 21
-      Hint = 'Value B flow frequency (secs for period)'
+      Hint = 'Value B flow frequency (secs for period); Enter to apply'
       Anchors = [akLeft, akTop, akRight]
       ParentShowHint = False
       ShowHint = True
@@ -187,7 +187,7 @@ object Form1: TForm1
       Top = 85
       Width = 75
       Height = 21
-      Hint = 'Value C flow frequency (secs for period)'
+      Hint = 'Value C flow frequency (secs for period); Enter to apply'
       Anchors = [akLeft, akTop, akRight]
       ParentShowHint = False
       ShowHint = True
