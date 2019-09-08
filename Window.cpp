@@ -12,38 +12,40 @@ TForm1 *Form1;
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm(Owner)
-    , coefA(3.0, 7.0)
-    , coefB(1.0, 3.0)
-    , coefC(1.0, 10.0)
+    , coefA(new CoefThread(3.0, 7.0))
+    , coefB(new CoefThread(1.0, 3.0))
+    , coefC(new CoefThread(1.0, 10.0))
+    , fileWrite(new FileWriteThread("graph_coefs.tgh"))
 {
-    this->freqMap[EditFreqA] = &this->coefA;
-    this->freqMap[EditFreqB] = &this->coefB;
-    this->freqMap[EditFreqC] = &this->coefC;
+    FormatSettings.DecimalSeparator = '.';
 
-    this->stopMap[ButtonA] = &this->coefA;
-    this->stopMap[ButtonB] = &this->coefB;
-    this->stopMap[ButtonC] = &this->coefC;
+    this->freqMap[EditFreqA] = this->coefA;
+    this->freqMap[EditFreqB] = this->coefB;
+    this->freqMap[EditFreqC] = this->coefC;
 
-    this->valMap[ButtonA] = this->EditA;
-    this->valMap[ButtonB] = this->EditB;
-    this->valMap[ButtonC] = this->EditC;
+    this->stopValMap[ButtonA] = std::pair<TEdit*, CoefThread*>(this->EditA, this->coefA);
+    this->stopValMap[ButtonB] = std::pair<TEdit*, CoefThread*>(this->EditB, this->coefB);
+    this->stopValMap[ButtonC] = std::pair<TEdit*, CoefThread*>(this->EditC, this->coefC);
 
-    this->coefA.run();
-    this->coefB.run();
-    this->coefC.run();
+    this->coefA->start();
+    this->coefB->start();
+    this->coefC->start();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Timer1Timer(TObject *Sender)
 {
     // setting current values to edits
-    std::string val = std::to_string(this->coefA.getVal());
-    this->EditA->Text = val.c_str();
+    std::string val;
 
-    val = std::to_string(this->coefB.getVal());
-    this->EditB->Text = val.c_str();
-
-    val = std::to_string(this->coefC.getVal());
-    this->EditC->Text = val.c_str();
+    auto mapIt = this->stopValMap.begin();
+    for (; mapIt != this->stopValMap.end(); ++mapIt)
+    {
+        if (mapIt->second.first->Enabled == false)
+        {
+            val = std::to_string(mapIt->second.second->getVal());
+            mapIt->second.first->Text = val.c_str();
+        }
+    }
 }
 //---------------------------------------------------------------------------
 int TForm1::setFreq(TEdit *edit, CoefThread *coefThread)
@@ -89,17 +91,18 @@ int TForm1::stopStartThread(TButton *button, CoefThread *coefThread)
     if (coefThread->isRunning())
     {
         coefThread->stop();
-        this->valMap[button]->Enabled = true;
+        this->stopValMap[button].first->Enabled = true;
         button->Caption = "Run";
         return 0;
     }
 
-    coefThread->run();
-    this->valMap[button]->Enabled = false;
+    coefThread->start();
+    this->stopValMap[button].first->Enabled = false;
     button->Caption = "Stop";
 
     return 0;
 }
+//---------------------------------------------------------------------------
 void __fastcall TForm1::ButtonTrCntClick(TObject *Sender)
 {
     TButton *button = dynamic_cast<TButton*>(Sender);
@@ -108,21 +111,37 @@ void __fastcall TForm1::ButtonTrCntClick(TObject *Sender)
         return;
     }
 
-    if (!this->stopMap.count(button) || !this->valMap.count(button))
+    if (!this->stopValMap.count(button))
     {
         return;
     }
 
-    if (this->stopStartThread(button, this->stopMap[button]))
+    if (this->stopStartThread(button, this->stopValMap[button].second))
     {
-        this->valMap[button]->Text = "Bad";
+        this->stopValMap[button].first->Text = "Bad";
     }
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::Button4Click(TObject *Sender)
+void __fastcall TForm1::ButtonDrawClick(TObject *Sender)
 {
+    float coefA = this->EditA->Text.ToDouble();
+    float coefB = this->EditB->Text.ToDouble();
+    float coefC = this->EditC->Text.ToDouble();
+    GraphView1->setCoefs(coefA, coefB, coefC);
+    this->fileWrite->stop();
+    this->fileWrite->setCoefs(coefA, coefB, coefC);
+    this->fileWrite->start();
+    GraphView1->FormShow(NULL);
     GraphView1->Visible = true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
+{
+    delete this->coefA;
+    delete this->coefB;
+    delete this->coefC;
 }
 //---------------------------------------------------------------------------
 

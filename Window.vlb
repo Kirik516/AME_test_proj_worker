@@ -1,7 +1,4 @@
-﻿[Label1]
-Coordinates=133,78,53,58
-
-[]
+﻿[]
 Coordinates=133,10,79,58
 
 [EditC]
@@ -21,4 +18,7 @@ Coordinates=10,146,59,58
 
 [ButtonC]
 Coordinates=64,78,59,58
+
+[LabelValA]
+Coordinates=133,78,53,58
 

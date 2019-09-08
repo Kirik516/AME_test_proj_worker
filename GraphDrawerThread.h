@@ -19,6 +19,7 @@ class GraphDrawer : public TThread
     float coefB;
     float coefC;
 
+    // backstoring bitmap
     TBitmap *graph;
 
     float drawindFunstion(float coefA, float coefB, float coefC, float t);

@@ -12,6 +12,8 @@
 #include <string>
 #include <map>
 
+#include <System.SysUtils.hpp>
+
 #include "coef_thread.h"
 #include "file_write_thread.h"
 //---------------------------------------------------------------------------
@@ -24,10 +26,10 @@ __published:	// IDE-managed Components
     TButton *ButtonA;
     TButton *ButtonB;
     TButton *ButtonC;
-	TLabel *Label1;
-	TLabel *Label2;
-	TLabel *Label3;
-	TButton *Button4;
+    TLabel *LabelValA;
+    TLabel *LabelValB;
+    TLabel *LabelValC;
+    TButton *ButtonDraw;
     TTimer *Timer1;
     TGroupBox *GroupBoxVal;
     TGroupBox *GroupBoxFreq;
@@ -40,20 +42,21 @@ __published:	// IDE-managed Components
     void __fastcall Timer1Timer(TObject *Sender);
     void __fastcall EditFreqKeyPress(TObject *Sender, System::WideChar &Key);
     void __fastcall ButtonTrCntClick(TObject *Sender);
-    void __fastcall Button4Click(TObject *Sender);
+    void __fastcall ButtonDrawClick(TObject *Sender);
+    void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 
 private:	// User declarations
     // threads
-    CoefThread coefA;
-    CoefThread coefB;
-    CoefThread coefC;
+    CoefThread *coefA;
+    CoefThread *coefB;
+    CoefThread *coefC;
+    FileWriteThread *fileWrite;
 
     // for freq set
     std::map<TEdit*, CoefThread*> freqMap;
 
-    // for thread stop/start
-    std::map<TButton*, CoefThread*> stopMap;
-    std::map<TButton*, TEdit*> valMap;
+    // for thread stop/start and  get value
+    std::map<TButton*, std::pair<TEdit*, CoefThread*>> stopValMap;
 
     // 0 - on success; 1 - on fail
     // set freq from edit value to thread

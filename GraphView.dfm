@@ -1,6 +1,6 @@
 object GraphView1: TGraphView1
-  Left = 0
-  Top = 0
+  Left = 940
+  Top = 187
   Caption = 'Function graph'
   ClientHeight = 423
   ClientWidth = 541
@@ -11,6 +11,7 @@ object GraphView1: TGraphView1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poDesigned
   OnMouseWheelDown = FormMouseWheelDown
   OnMouseWheelUp = FormMouseWheelUp
   OnPaint = FormPaint
