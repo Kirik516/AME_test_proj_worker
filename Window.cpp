@@ -15,6 +15,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     , coefA(new CoefThread(3.0, 7.0))
     , coefB(new CoefThread(1.0, 3.0))
     , coefC(new CoefThread(1.0, 10.0))
+    , fileWrite(new FileWriteThread("graph_coefs.tgh"))
 {
     FormatSettings.DecimalSeparator = '.';
 
@@ -124,9 +125,13 @@ void __fastcall TForm1::ButtonTrCntClick(TObject *Sender)
 
 void __fastcall TForm1::ButtonDrawClick(TObject *Sender)
 {
-    GraphView1->setCoefs(this->EditA->Text.ToDouble(),
-                            this->EditB->Text.ToDouble(),
-                            this->EditC->Text.ToDouble());
+    float coefA = this->EditA->Text.ToDouble();
+    float coefB = this->EditB->Text.ToDouble();
+    float coefC = this->EditC->Text.ToDouble();
+    GraphView1->setCoefs(coefA, coefB, coefC);
+    this->fileWrite->stop();
+    this->fileWrite->setCoefs(coefA, coefB, coefC);
+    this->fileWrite->start();
     GraphView1->FormShow(NULL);
     GraphView1->Visible = true;
 }
